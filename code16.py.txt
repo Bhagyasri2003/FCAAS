@@ -1,0 +1,21 @@
+function askForMissingDetails(developers) {
+  const missingDetails = developers.filter(dev => {
+    return Object.values(dev).some(value => value === null);
+  });
+
+  const result = missingDetails.map(dev => {
+    const question = `Hi, could you please provide your ${Object.keys(dev).find(key => dev[key] === null)}.`;
+    return { ...dev, question };
+  });
+
+  return result;
+}
+
+// Example usage:
+var list1 = [
+  { firstName: 'Kseniya', lastName: 'T.', country: null, continent: 'Europe', age: 29, language: 'Ruby' },
+  { firstName: 'Amar', lastName: null, country: 'Bosnia and Herzegovina', continent: 'Europe', age: 32, language: 'Ruby' }
+];
+
+var developersWithMissingDetails = askForMissingDetails(list1);
+console.log(developersWithMissingDetails);

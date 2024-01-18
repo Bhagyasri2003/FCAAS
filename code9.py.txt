@@ -1,0 +1,35 @@
+def is_age_diverse(developers):
+    age_groups = {
+        'teens': (10, 19),
+        'twenties': (20, 29),
+        'thirties': (30, 39),
+        'forties': (40, 49),
+        'fifties': (50, 59),
+        'sixties': (60, 69),
+        'seventies': (70, 79),
+        'eighties': (80, 89),
+        'nineties': (90, 99),
+        'centenarian': (100, 199),
+    }
+
+    age_groups_presence = {age_group: False for age_group in age_groups}
+
+    for developer in developers:
+        age = developer['age']
+
+        for age_group, (lower, upper) in age_groups.items():
+            if lower <= age <= upper:
+                age_groups_presence[age_group] = True
+                break
+
+    return all(age_groups_presence.values())
+
+# Example usage:
+list1 = [
+    {'firstName': 'Harry', 'lastName': 'K.', 'country': 'Brazil', 'continent': 'Americas', 'age': 19, 'language': 'Python'},
+    {'firstName': 'Kseniya', 'lastName': 'T.', 'country': 'Belarus', 'continent': 'Europe', 'age': 29, 'language': 'JavaScript'},
+    # ... (remaining developers)
+]
+
+result = is_age_diverse(list1)
+print(result)  # Output: True

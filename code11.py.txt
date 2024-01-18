@@ -1,0 +1,13 @@
+function getAverageAge(list) {
+    const totalAge = list.reduce((sum, developer) => sum + developer.age, 0);
+    const averageAge = Math.round(totalAge / list.length);
+
+    return averageAge;
+}
+var list1 = [
+    { firstName: 'Maria', lastName: 'Y.', country: 'Cyprus', continent: 'Europe', age: 30, language: 'Java' },
+    { firstName: 'Victoria', lastName: 'T.', country: 'Puerto Rico', continent: 'Americas', age: 70, language: 'Python' },
+];
+
+var result = getAverageAge(list1);
+console.log(result);

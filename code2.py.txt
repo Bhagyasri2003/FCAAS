@@ -1,0 +1,17 @@
+def greet_developers(lst):
+    return [{'firstName': dev['firstName'],
+             'lastName': dev['lastName'],
+             'country': dev['country'],
+             'continent': dev['continent'],
+             'age': dev['age'],
+             'language': dev['language'],
+             'greeting': f"Hi {dev['firstName']}, what do you like the most about {dev['language']}?"}
+            for dev in lst]
+list1 = [
+    {'firstName': 'Sofia', 'lastName': 'I.', 'country': 'Argentina', 'continent': 'Americas', 'age': 35, 'language': 'Java'},
+    {'firstName': 'Lukas', 'lastName': 'X.', 'country': 'Croatia', 'continent': 'Europe', 'age': 35, 'language': 'Python'},
+    {'firstName': 'Madison', 'lastName': 'U.', 'country': 'United States', 'continent': 'Americas', 'age': 32, 'language': 'Ruby'}
+]
+
+result = greet_developers(list1)
+print(result)
